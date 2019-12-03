@@ -1,0 +1,201 @@
+<html>
+<head><title>beauty product</title></head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+tr:hover
+{
+background-color:#f5f5f5;
+}
+h1 {
+  text-shadow: 2px 2px #FF0000;
+}
+tr:nth-child(even){
+background-color:gray;
+color:white;
+}
+table 
+{
+	border:0px
+}
+th,td{
+
+border-bottom : 1px solid blue;
+}
+</style>
+<script>
+function validate()
+{
+	if(!chkusername() || !validatepass() ||  !checknumber() )
+	{
+		alert ("please correct error messages");
+		return false;
+	}
+	return true;
+}
+
+
+function chkusername()
+{
+	var uname = document.getElementById("txtname").value;
+	
+	var xhttp=new XMLHttpRequest();
+	xhttp.onreadystatechange = function()
+	{
+		var msg = xhttp.responseText;
+		document.getElementById("erru").innerHTML = msg;
+	}
+	xhttp.open("GET","chkusername1.php?txtname="+uname,true);
+	xhttp.send();
+	
+	if(uname == " " || uname.length<5)
+	{
+		alert("Username is blank or less then 5 characters");
+		return false;
+	}
+	return true;
+
+}
+
+function validatepass()
+{
+	errmsg="";
+	var cpass = document.getElementById("txtrpass").value;
+	var pass = document.getElementById("txtpass").value;
+	if(pass!=cpass)
+	{
+		errmsg = "Password and Confirm Password mismatch";
+		document.getElementById("errp").innerHTML = errmsg;
+		return false;
+	}
+	else
+	{
+		document.getElementById("errp").innerHTML = errmsg;
+		return true;
+	}
+	
+}
+function checknumber()
+{
+var errmsg="";
+	var num1 = document.getElementById("num").value;
+
+	if(num1.length != 10)
+	{
+	errmsg = "mobile no. is invalid";
+		document.getElementById("errmsg").innerHTML = errmsg;
+		return false;
+	}
+	else
+	{
+		document.getElementById("errmsg").innerHTML = errmsg;
+		return true;
+	}
+
+}
+
+
+</script>
+<body background="img/bea.jpg">
+<br/><br/><br/><br/><br/>
+<form action="confirmation.php" method="get" onsubmit="return validate()">
+<h1><center>SignUp Form</center></h1>
+<br/>
+ 
+<table 
+border="0" bgcolor="pink" width="40%"
+align="center"
+>
+<tr>
+<th colspan="2"> User Signup </th>
+</tr>
+<tr>
+<td>
+Username 
+</td>
+<td>
+<input type="text" name="txtname" 
+maxlength="10" autofocus required 
+placeholder = "Enter Username" id="txtname" onblur="chkusername()"
+/>
+<div id="erru" class="alert alert-warning"> </div> 
+</td>
+</tr>
+<tr>
+<td>
+Password
+</td>
+<td>
+<input type="password" name="txtpass" 
+ autofocus  id="txtpass"
+placeholder = "Enter Password"
+/>
+<div id="errp"></div>
+</td>
+</tr>
+<tr>
+<td>
+Retype Password
+</td>
+<td>
+<input type="password" name="txtrpass" 
+ autofocus 
+placeholder = "Re-Enter Password" id="txtrpass"
+  onblur="validatepass()"
+/>
+</td>
+</tr>
+<tr>
+<td>
+Email
+</td>
+<td>
+<input type="email" name="email" 
+ autofocus 
+placeholder = "Enter Email" required/>
+</td>
+</tr>
+<tr>
+<td>
+Address
+</td>
+<td>
+<textarea name="txaaddr" 
+rows="2" cols="20"
+placeholder="Enter Address"></textarea>
+</td>
+</tr>
+<tr>
+<td>
+Mobile
+</td>
+<td>
+<input type="number" name="mobile" 
+ autofocus onblur="checknumber()"
+placeholder = "Enter Mobile" id="num"
+/><div id="errmsg"></div>
+</td>
+
+</tr>
+<tr>
+<td>
+Gender
+</td>
+<td nowrap>
+<input type="radio" name="rdogender" value="m"  /> Male
+<input type="radio" name="rdogender" checked value="f" /> Female
+<input type="radio" name="rdogender" value="t"/> Transgender
+</td>
+</tr>
+</tr>
+<tr> 
+<td align="right"> 
+<input type="submit" class = "btn btn-primary" value="Register"/>
+</td>
+<td> <button type="reset" class = "btn btn-danger">Clear</button>
+</td>
+</tr>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<html>
+<style>
+.container-flex
+{
+ display:flex;
+ flex-direction:row;
+align-items:center; 
+}
+div
+{
+ border:1px solid red;
+}
+
+.div1{
+flex:1;
+order:3
+}
+
+.div2{
+flex:5;
+order:1
+}
+
+.div3
+{
+flex:3;
+order:2;
+}
+</style>
+
+<body>
+<div class="container-flex">
+<div class="div1"> 
+<img src="img/b.jpg"/>
+</div>
+
+<div class="div2">
+Username: <input type="text" name="username"/> <br/>
+Password: <input type="password" name="userpassword"/>   <br/>
+<button type="submit"> login </button> 
+</div>
+<div class="div3">
+<h3> Services offered </h3>
+<ul>
+<li> Application Development </li>
+<li> Product Development </li>
+<li> Software Training </li>
+<li> Project Internships </li>
+</ul>
+</div>
+</div>
+</body>
+</html>

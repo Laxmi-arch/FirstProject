@@ -1,0 +1,44 @@
+<html>
+<body>
+<div id="showcdcatalog"></div>
+
+<script>
+var xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function()
+{
+	if (xhttp.readyState == 4 && xhttp.status ==200)
+	{
+	var str ="";
+		var xmldoc = xhttp.responseXML;
+		var title  = xmldoc.getElementsByTagName("TITLE");
+		var artist = xmldoc.getElementsByTagName("ARTIST");
+		document.write("<table border=1><tr> <th> Title </th> <th> Artist </th> <th> Language </th></tr>");
+		for(i=0;i<title.length;i++)
+		{
+		for()
+		document.write("<tr><td>" + title[i].childNodes[0].nodeValue + "</td>");
+		document.write("<td>" + artist[i].childNodes[0].nodeValue + "</td>");
+		document.write("<td>" + title[i].getAttributeNode("lang").nodeValue + "</td></tr>");
+		}
+		
+		document.write("</table>");
+		
+		 /*str += (i+1) + ". " +item[i].childNodes[0].nodeValue+"<Br/>";
+		
+		document.getElementById("showcdcatalog").innerHTML = str;*/
+	}
+/*	else
+	{
+		alert("Waiting");
+	}*/
+}
+
+
+xhttp.open("GET","cd_catalog.xml",true);
+xhttp.send();
+
+</script>
+
+</body>
+</html>

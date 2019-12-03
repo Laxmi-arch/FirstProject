@@ -1,0 +1,32 @@
+<!--4.union of two arrays-->
+<html>
+<script>
+var size = parseInt(prompt("Enter the size of array"));
+var arr=new Array(size)
+for(var i=0;i<size;i++)
+{
+  arr[i]=parseInt(prompt("enter element"));
+}
+for(var i=0;i<size;i++)
+{
+  document.write(arr[i]+" ");
+}
+
+document.write("<br/>");
+
+var s = parseInt(prompt("Enter the size of array"));
+var brr=new Array(s)
+for(var i=0;i<s;i++)
+{
+  brr[i]=parseInt(prompt("enter element"));
+}
+for(var i=0;i<s;i++)
+{
+  document.write(brr[i]+" ");
+}
+document.write("<br/>");
+document.write("concated array is");
+document.write(arr.concat(brr) + "<br/>");
+
+</script>
+</html>

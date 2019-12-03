@@ -1,0 +1,25 @@
+//2.prog for displaying prime no. between given range 
+
+<html>
+<script>
+var num = parseInt(prompt("Enter the Value for 1st number"));
+var num1 = parseInt(prompt("Enter the Value for 2nd number"));
+var j,cnt=0;
+for(var i=num;i<num1;i++)
+{
+cnt=0;
+for(var j=2;j<i;j++)
+{
+                                           
+  if(i%j==0)
+  {
+    cnt++;
+  }
+}
+if(cnt == 0)
+{
+ document.write(i+"</br>");
+}
+}
+</script>
+</html>
